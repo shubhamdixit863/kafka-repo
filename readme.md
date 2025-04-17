@@ -173,8 +173,18 @@ make start-zk     # Starts the 3-node Kafka cluster
 bin/kafka-topics.sh --create \
 --topic my-topic \
 --bootstrap-server localhost:9092 \
---replication-factor 3 \   # should not be greater than number of brokers
+--replication-factor 1 \   # should not be greater than number of brokers
 --partitions 3
+
+```
+
+```
+bin/kafka-topics.sh --create \
+  --topic my-topic \
+  --bootstrap-server localhost:9092 \
+  --replication-factor 1 \
+  --partitions 3
+
 
 ```
 
@@ -187,7 +197,7 @@ bin/kafka-topics.sh --describe \
 
 ## Sending the message Below command starts interactive shell
 ````
-bin/kafka-console-producer.sh --topic my-topic2 --bootstrap-server localhost:9092
+bin/kafka-console-producer.sh --topic users --bootstrap-server localhost:9092
 
 ````
 ## Runs Zookeeper interactive shell
